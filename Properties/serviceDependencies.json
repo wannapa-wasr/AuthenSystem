@@ -3,6 +3,9 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "AuthDbContextContextConnection"
+    },
+    "secrets1": {
+      "type": "secrets"
     }
   }
 }
