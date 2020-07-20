@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,13 +28,11 @@ namespace AuthSystem
             services.AddRazorPages();
 
             services.AddAuthentication()
-            .AddGoogle(options =>
+            .AddGoogle(opts =>
             {
-                IConfigurationSection googleAuthNSection =
-                    Configuration.GetSection("Authentication:Google");
-
-                options.ClientId = googleAuthNSection["ClientId"];
-                options.ClientSecret = googleAuthNSection["ClientSecret"];
+                opts.ClientId = "168669914421-2fdl9kv66da46040h7750nfhqpr8m2g3.apps.googleusercontent.com";
+                opts.ClientSecret = "3MZ37ToSp0GUyNImTcyZZYeK";
+                opts.SignInScheme = IdentityConstants.ExternalScheme;
             });
         }
 
