@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
-
 using AuthSystem.Areas.Identity.Data;
+using static AuthSystem.Areas.Identity.Pages.Account.LoginModel;
 
 namespace AuthSystem.Controllers
 {
@@ -29,9 +29,9 @@ namespace AuthSystem.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        public IActionResult InputModel(string returnUrl)
         {
-            Login login = new Login();
+            InputModel login = new InputModel();
             login.ReturnUrl = returnUrl;
             return View(login);
         }
@@ -39,7 +39,7 @@ namespace AuthSystem.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Login login)
+        public async Task<IActionResult> InputModel(InputModel login)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace AuthSystem.Controllers
         {
             ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
-                return RedirectToAction(nameof(LoginModel));
+                return RedirectToAction(nameof(InputModel));
 
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
             string[] userInfo = { info.Principal.FindFirst(ClaimTypes.Name).Value, info.Principal.FindFirst(ClaimTypes.Email).Value };

@@ -24,7 +24,6 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Login</p>
-
                 <form id="account" method="post">
                     <span asp-validation-for="Input.Email" class="text-danger small"></span>
                     <div class="input-group mb-3">
@@ -56,12 +55,17 @@
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
-                        <div class="col-8">
-                            <a class="btn btn-info" asp-controller="Account" asp-action="GoogleLogin">Log In With Google</a>
-                         </div>
-                     </div>
-                     <div asp-validation-summary="All" class="text-danger small"></div>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger small"></div>
                 </form>
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a class="btn btn-block btn-danger" asp-controller="Account" asp-action="GoogleLogin">
+                        <i class="fab fa-google-plus mr-2"></i>
+                        Log In With Google+
+                    </a>
+                </div>
+                <a href="/Identity/Account/Register" class="text-center">Create a new account</a>
             </div>
         </div>
     </div>
