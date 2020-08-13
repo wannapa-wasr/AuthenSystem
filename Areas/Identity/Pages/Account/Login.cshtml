@@ -2,14 +2,14 @@
 @model LoginModel
 @{
     Layout = null;
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Login";
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Log in</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -21,10 +21,15 @@
     <div class="login-box">
         <div class="login-logo">
         </div>
+        <h3 class="login-box-msg">User Management System</h3>
+        <!--Start Card-->
         <div class="card">
+            <!--Start Card body-->
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Login</p>
+                <p class="login-box-msg">Login to start UMS</p>
+                <!--Start Form Login-->
                 <form id="account" method="post">
+                    <!--Start Input Email-->
                     <span asp-validation-for="Input.Email" class="text-danger small"></span>
                     <div class="input-group mb-3">
                         <input asp-for="Input.Email" class="form-control" placeholder="email" />
@@ -34,6 +39,8 @@
                             </div>
                         </div>
                     </div>
+                    <!--End Input Email-->
+                    <!--Start Input Password-->
                     <span asp-validation-for="Input.Password" class="text-danger small"></span>
                     <div class="input-group mb-3">
                         <input asp-for="Input.Password" class="form-control" placeholder="password" />
@@ -43,7 +50,14 @@
                             </div>
                         </div>
                     </div>
+                    <!--End Input Password-->
+                    <!--Start Hyperlink-->
+                    <a href="/Identity/Account/ForgotPassword" class="text-center">I forgot my password</a><br>
+                    <a href="/Identity/Account/Register" class="text-center">Register a new membership</a>
+                    <a href="/Identity/Account/ResetPassword" class="text-center">Reset Password</a>
+                    <!--End Hyperlink-->
                     <div class="row">
+                        <!--Start Checkbox Remember Me-->
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
@@ -52,28 +66,45 @@
                                 </label>
                             </div>
                         </div>
+                        <!--End Checkbox Remember Me-->
+                        <!--Start Button Login-->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </div>
+                        <!--Endt Button Login-->
                     </div>
                     <div asp-validation-summary="All" class="text-danger small"></div>
                 </form>
+                <!--End Form Login-->
+                <!--Start Social media Login-->
                 <div class="social-auth-links text-center">
                     <p>- OR -</p>
                     <a class="btn btn-block btn-danger" asp-controller="Account" asp-action="GoogleLogin">
                         <i class="fab fa-google-plus mr-2"></i>
-                        Log In With Google+
+                        Log In With Google
+                    </a>
+                    <a class="btn btn-block btn-primary" asp-controller="#" asp-action="#">
+                        <i class="fab fa-facebook mr-2"></i>
+                        Log In With Facebook
+                    </a>
+                    <a class="btn btn-block btn-secondary" asp-controller="#" asp-action="#">
+                        <i class="fas fa-th-large mr-2"></i>
+                        Log In With Microsoft
                     </a>
                 </div>
-                <a href="/Identity/Account/Register" class="text-center">Create a new account</a>
+                <!--End Social media Login-->
             </div>
+            <!--End Card body-->
         </div>
+        <!--End Card-->
     </div>
+
     <script src="~/plugins/jquery/jquery.min.js"></script>
     <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/adminlte.min.js"></script>
     @section Scripts {
         <partial name="_ValidationScriptsPartial" />
     }
+
 </body>
 </html>
