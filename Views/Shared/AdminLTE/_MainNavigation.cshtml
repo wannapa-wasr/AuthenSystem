@@ -35,17 +35,14 @@
                         </p>
                     </a>
                 </li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li class="nav-item ">
-                        <a asp-controller="Home" asp-action="Privacy" class="nav-link @Url.MakeActiveClass("home","privacy")">
-                            <i class="nav-icon fas fa-lock"></i>
-                            <p>
-                                Privacy
-                            </p>
-                        </a>
-                    </li>
-                }
+                <li class="nav-item ">
+                    <a asp-controller="" asp-action="EditProfile" class="nav-link @Url.MakeActiveClass("editprofile","EditProfile")">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Edit profile
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
